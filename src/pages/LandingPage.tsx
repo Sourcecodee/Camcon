@@ -1,4 +1,3 @@
-import React from 'react';
 
 const screenshots = [
   '/Screenshot%202025-09-03%20212114.png',
