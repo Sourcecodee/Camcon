@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* Optional: CSS-first configuration */
+:root {
+  /* Customize tokens with CSS variables */
+  --font-display: "Inter", sans-serif;
+  --color-primary: oklch(0.84 0.18 117.33);
+  --breakpoint-lg: 1024px;
+}
+
+
