@@ -1,23 +1,69 @@
-import React from 'react';
+import { User, Mail, MapPin, Calendar, GraduationCap } from 'lucide-react';
 
 interface ProfileCardProps {
   name: string;
+  email: string;
+  location?: string;
   course: string;
-  skills: string[];
-  github?: string;
-  linkedin?: string;
+  university: string;
+  year: string;
+  bio: string;
+  avatar?: string;
 }
 
-const ProfileCard: React.FC<ProfileCardProps> = ({ name, course, skills, github, linkedin }) => (
-  <div className="p-6 bg-white rounded shadow flex flex-col items-start mb-4">
-    <div className="font-bold text-xl mb-2">{name}</div>
-    <div className="text-gray-600 mb-2">{course}</div>
-    <div className="mb-2">Skills: {skills.join(', ')}</div>
-    <div className="flex space-x-2">
-      {github && <a href={github} target="_blank" rel="noopener noreferrer" className="text-blue-500">GitHub</a>}
-      {linkedin && <a href={linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-500">LinkedIn</a>}
+const ProfileCard: React.FC<ProfileCardProps> = ({
+  name,
+  email,
+  location,
+  course,
+  university,
+  year,
+  bio,
+  avatar
+}) => {
+  return (
+    <div className="bg-white rounded-lg shadow-sm border p-6">
+      <div className="flex items-start space-x-6">
+        <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+          {avatar ? (
+            <img src={avatar} alt={name} className="w-20 h-20 rounded-full object-cover" />
+          ) : (
+            <User className="w-8 h-8 text-blue-600" />
+          )}
+        </div>
+        
+        <div className="flex-1">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">{name}</h2>
+          
+          <div className="space-y-2 mb-4">
+            <div className="flex items-center text-gray-600">
+              <Mail className="w-4 h-4 mr-2" />
+              <span className="text-sm">{email}</span>
+            </div>
+            
+            {location && (
+              <div className="flex items-center text-gray-600">
+                <MapPin className="w-4 h-4 mr-2" />
+                <span className="text-sm">{location}</span>
+              </div>
+            )}
+            
+            <div className="flex items-center text-gray-600">
+              <GraduationCap className="w-4 h-4 mr-2" />
+              <span className="text-sm">{course} • {university}</span>
+            </div>
+            
+            <div className="flex items-center text-gray-600">
+              <Calendar className="w-4 h-4 mr-2" />
+              <span className="text-sm">{year} Year</span>
+            </div>
+          </div>
+          
+          <p className="text-gray-700 text-sm leading-relaxed">{bio}</p>
+        </div>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default ProfileCard;
