@@ -12,9 +12,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full flex justify-between items-center px-8 py-4 bg-white shadow-lg border-b">
-      <Link to="/" className="font-bold text-2xl text-orange-600 hover:text-orange-700">
-        Camcon
+    <nav className="w-full flex justify-between items-center px-8 py-4 bg-white">
+      <Link to="/" className="flex items-center space-x-3">
+        <div className="w-8 h-8 bg-orange-600 rounded flex items-center justify-center">
+          <span className="text-white font-bold text-lg">C</span>
+        </div>
+        <span className="font-bold text-2xl text-gray-900">Camcon</span>
       </Link>
       
       <div className="flex items-center space-x-4">
@@ -52,15 +55,15 @@ const Navbar = () => {
           <>
             <Link 
               to="/login" 
-              className="px-4 py-2 text-gray-700 hover:text-orange-600 transition-colors"
+              className="text-gray-700 hover:text-orange-600 transition-colors"
             >
-              Login
+              Sign In
             </Link>
             <Link 
               to="/signup" 
               className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors"
             >
-              Sign Up
+              Get Started
             </Link>
           </>
         )}
